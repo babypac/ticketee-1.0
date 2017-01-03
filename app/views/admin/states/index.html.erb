@@ -1,0 +1,25 @@
+<header>
+  <h1>States</h1>
+
+  <ul class="actions">
+    <li><%= link_to "New State", new_admin_state_path, class: "new" %></li>
+  </ul>
+</header>
+
+<ul id="states">
+  <% @states.each do |state| %>
+      <li>
+        <%= render "states/state", state: state %>
+        <% if state.default? %>
+            (This is the default.)
+        <% else %>
+            <%= link_to "Make Default", make_default_admin_state_path(state), class: "btn btn-link" %>
+        <% end %>
+        | <%= link_to "Edit", edit_admin_state_path(state), class: "btn btn-primary btn-xs" %>
+        | <%= link_to "Delete", admin_state_path(state),
+                      method: :delete,
+                      data: { confirm: "Are you sure you want to delete this state?" },
+                      class: "btn btn-danger btn-xs" %>
+      </li>
+  <% end %>
+</ul>

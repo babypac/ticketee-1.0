@@ -1,0 +1,16 @@
+<%= simple_form_for([project, ticket], :html => {:multipart => true}) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+
+    <div id="attachments">
+      <h3>Attachments</h3>
+      <%= render partial: "attachments/form", locals: { f: f, index: 0 } %>
+      <small><strong>20메가 이하 파일만 업로드 가능</strong></small>
+    </div>
+    <p>
+      <%= link_to "Add another file", new_attachment_path, remote: true,
+                  id: "add_file", data: { params: {index: ticket.attachments.size} } %>
+    </p>
+
+    <%= f.button :submit, class: "btn-primary" %>
+<% end %>

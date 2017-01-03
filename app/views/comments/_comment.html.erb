@@ -1,0 +1,19 @@
+<div class="commentlist">
+  <%= state_transition_for(comment) %>
+  <blockquote class="comment">
+    <%= simple_format(comment.text) %>
+    <footer>
+      <%= comment.created_at.strftime('%Y.%m.%d %H:%M') %>
+      by <cite><%= comment.author.name %></cite>
+    </footer>
+    <% if policy(comment.ticket).update? %>
+        <%= link_to "Edit", [:edit, comment.ticket, comment], class: "btn btn-primary btn-xs" %>
+    <% end %>
+    <% if policy(comment.ticket).destroy? %>
+        |
+        <%= link_to "Delete", [comment.ticket, comment],
+                    method: :delete,
+                    data: { confirm: "Are you sure you want to delete this comment?" }, class: "btn btn-danger btn-xs" %>
+    <% end %>
+  </blockquote>
+</div>

@@ -1,0 +1,76 @@
+#attributes {
+  @extend .table;
+  @extend .table-condensed;
+  width: 65%;
+
+  th {
+    width: 35%;
+  }
+
+  tr:first-child {
+    td, th {
+      border-top: 0px;
+    }
+  }
+
+  td, th {
+    line-height: 24px !important;
+  }
+}
+
+blockquote.comment p {
+  font-size: 14px;
+}
+
+blockquote.comment footer {
+  font-size: 11px;
+}
+
+.state {
+  @extend .label;
+  font-size: 12px;
+  padding: 0.3em 0.6em;
+}
+
+#tickets li, #states li {
+  padding-bottom: 10px;
+}
+
+.watch, .unwatch {
+  @extend .btn;
+  @extend .btn-xs;
+  font-weight: bold;
+
+  &:before {
+    font-family: "FontAwesome";
+    padding-right: 0.5em;
+  }
+}
+
+.watch {
+  @extend .btn-success;
+
+  &:before {
+    @extend .fa-eye;
+  }
+}
+
+.unwatch {
+  @extend .btn-danger;
+
+  &:before {
+    @extend .fa-eye-slash;
+  }
+}
+
+.commentlist {
+  padding-bottom: 20px;
+}
+
+.commentlist blockquote {
+  margin: 0 0 5px;
+}
+
+.commentlist footer{
+  padding-bottom: 10px;
+}
