@@ -12,7 +12,7 @@
 
 <div id="projects">
   <% @projects.each do |project| %>
-      <h2><%= link_to project.name, project %></h2>
+      <h2><%= link_to project.name, project %><span class="badge"><%= project.tickets.size %></span></h2>
       <p><%= project.description %></p>
   <% end %>
 </div>
