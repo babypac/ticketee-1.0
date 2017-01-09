@@ -35,6 +35,9 @@
       <li>
         #<%= ticket.id %> -
         <%= link_to ticket.name, [@project, ticket] %>
+        <% if ticket.comments.size > 0 %>
+          <span class="badge"><%= ticket.comments.size %></span>
+        <% end %>
         <% if ticket.state %>
           <%= link_to (render ticket.state), {:controller => "tickets", :action => "search_by_state", :project_id => @project.id, :ticket => ticket } %>
         <% end %>
